@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Card from "./Card";
-import faker from "faker";
 import person1 from "./img/person_1.jpg";
 
 function App() {
@@ -12,15 +11,20 @@ function App() {
       <button className="button button3">NO</button>
     </div>
   );
-  const changeNameHandler = () => {
-    setName("Umaria");
+  const changeNameHandler = (name) => {
+    setName(name);
   };
   return (
     <div className="App">
-      <button className="button" onClick={changeNameHandler}>
+      <button className="button" onClick={() => changeNameHandler("Fuck You")}>
         Change Name
       </button>
-      <Card avatar={person1} name={name}>
+      <Card
+        avatar={person1}
+        name={name}
+        title="hehe"
+        onChangeName={() => changeNameHandler("I'm Sorry")}
+      >
         {buttonsMarkup}
       </Card>
     </div>
