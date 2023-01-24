@@ -12,9 +12,7 @@ const Card = (props) => {
         </h4>
         <p>{props.title}</p>
         <p>
-          <button className="button" onClick={props.onChangeName}>
-            Change Name
-          </button>
+          <button className="button-red">Delete</button>
         </p>
         <div>{props.children}</div>
       </div>

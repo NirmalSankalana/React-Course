@@ -1,36 +1,43 @@
 import React, { useState } from "react";
 import "./App.css";
 import Card from "./Card";
-import person1 from "./img/person_1.jpg";
+import { faker } from "@faker-js/faker";
 
 function App() {
-  const [name, setName] = useState("Lily Collins");
-  const changeInputHandler = (e) => {
-    setName(e.target.value);
-  };
-  const buttonsMarkup = (
-    <div>
-      <button className="button button2">YES</button>
-      <button className="button button3">NO</button>
-    </div>
-  );
-  const changeNameHandler = (name) => {
-    setName(name);
-  };
+  const [cards, setCards] = useState([
+    {
+      name: faker.name.fullName(),
+      title: faker.name.jobTitle(),
+      avatar: faker.image.avatar(),
+    },
+    {
+      name: faker.name.fullName(),
+      title: faker.name.jobTitle(),
+      avatar: faker.image.avatar(),
+    },
+    {
+      name: faker.name.fullName(),
+      title: faker.name.jobTitle(),
+      avatar: faker.image.avatar(),
+    },
+    {
+      name: faker.name.fullName(),
+      title: faker.name.jobTitle(),
+      avatar: faker.image.avatar(),
+    },
+    {
+      name: faker.name.fullName(),
+      title: faker.name.jobTitle(),
+      avatar: faker.image.avatar(),
+    },
+  ]);
+
   return (
     <div className="App">
-      <button className="button" onClick={() => changeNameHandler("Fuck You")}>
-        Change Name
-      </button>
-      <input onChange={changeInputHandler} />
-      <Card
-        avatar={person1}
-        name={name}
-        title="hehe"
-        onChangeName={() => changeNameHandler("I'm Sorry")}
-      >
-        {buttonsMarkup}
-      </Card>
+      <button className="button-blue">Show Card</button>
+      {cards.map((card) => (
+        <Card avatar={card.avatar} name={card.name} title="hehe" />
+      ))}
     </div>
   );
 }
