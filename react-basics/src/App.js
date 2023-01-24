@@ -5,6 +5,9 @@ import person1 from "./img/person_1.jpg";
 
 function App() {
   const [name, setName] = useState("Lily Collins");
+  const changeInputHandler = (e) => {
+    setName(e.target.value);
+  };
   const buttonsMarkup = (
     <div>
       <button className="button button2">YES</button>
@@ -19,6 +22,7 @@ function App() {
       <button className="button" onClick={() => changeNameHandler("Fuck You")}>
         Change Name
       </button>
+      <input onChange={changeInputHandler} />
       <Card
         avatar={person1}
         name={name}
