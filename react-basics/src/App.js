@@ -6,26 +6,31 @@ import { faker } from "@faker-js/faker";
 function App() {
   const [cards, setCards] = useState([
     {
+      _id: 1,
       name: faker.name.fullName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.avatar(),
     },
     {
+      _id: 2,
       name: faker.name.fullName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.avatar(),
     },
     {
+      _id: 3,
       name: faker.name.fullName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.avatar(),
     },
     {
+      _id: 4,
       name: faker.name.fullName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.avatar(),
     },
     {
+      _id: 5,
       name: faker.name.fullName(),
       title: faker.name.jobTitle(),
       avatar: faker.image.avatar(),
@@ -43,6 +48,7 @@ function App() {
       <button className="button-blue">Show Card</button>
       {cards.map((card, index) => (
         <Card
+          key={card._id}
           avatar={card.avatar}
           name={card.name}
           title="hehe"
