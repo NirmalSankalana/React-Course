@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <button className="button-blue">Show Card</button>
-      {cards.map((card) => (
+      {cards.map((card, index) => (
         <Card avatar={card.avatar} name={card.name} title="hehe" />
       ))}
     </div>
