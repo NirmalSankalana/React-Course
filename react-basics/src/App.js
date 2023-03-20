@@ -37,6 +37,14 @@ function App() {
     },
   ]);
 
+  const buttonStyle = {
+    backgroundColor: null,
+  };
+
+  if (cards.length < 3) buttonStyle.backgroundColor = "yellow";
+  if (cards.length < 2) buttonStyle.backgroundColor = "orange";
+  if (cards.length < 1) buttonStyle.backgroundColor = "red";
+
   const deleteCardHandler = (index) => {
     const cards_copy = [...cards];
     cards_copy.splice(index, 1);
@@ -45,7 +53,9 @@ function App() {
 
   return (
     <div className="App">
-      <button className="button-blue">Show Card</button>
+      <button style={buttonStyle} className="button-blue">
+        Show Card
+      </button>
       {cards.map((card, index) => (
         <Card
           key={card._id}
