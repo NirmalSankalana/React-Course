@@ -2,7 +2,23 @@ import React, { Component } from "react";
 import "./App.css";
 
 class Card extends Component {
+  static getDerivedStateFromProps(props, state) {
+    console.log("Card.js getDerivedStateFromProps");
+    return state;
+  }
+  shouldComponentUpdate(props, state) {
+    console.log("Card.js shouldComponentUpdate");
+    return true;
+  }
+  getSnapshotBeforeUpdate(props, state) {
+    console.log("Card.js getSnapshotBeforeUpdate");
+    return { message: "some snapshot" };
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("Card.js componentdidupdate", snapshot);
+  }
   render() {
+    console.log("card rendering");
     return (
       <div className="card">
         <img src={this.props.avatar} alt="Avatar" style={{ width: "100%" }} />

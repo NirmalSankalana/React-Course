@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 class App extends Component {
   constructor(props) {
+    console.log("App.js Constructor");
     super(props);
     this.state = {
       cards: [
@@ -42,6 +43,10 @@ class App extends Component {
       ],
       showCard: true,
     };
+  }
+
+  componentDidMount() {
+    console.log("App js componentdigmount");
   }
 
   render() {
